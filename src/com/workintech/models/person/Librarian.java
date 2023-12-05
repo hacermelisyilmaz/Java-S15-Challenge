@@ -26,6 +26,12 @@ public class Librarian extends Person {
         else System.out.println("Incorrect password.");
     }
 
+    public void removeBook(long ISBN) {
+        if (authenticate()) Library.getBooks().remove(ISBN);
+        else System.out.println("Incorrect password.");
+    }
+
+
 
     public void createBill() {
 
