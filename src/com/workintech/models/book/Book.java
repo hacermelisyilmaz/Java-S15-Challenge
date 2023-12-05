@@ -3,6 +3,8 @@ package com.workintech.models.book;
 import com.workintech.enums.BookStatus;
 import com.workintech.models.person.Member;
 
+import java.util.Objects;
+
 public class Book {
     private long ISBN;
     private Author author;
@@ -125,7 +127,12 @@ public class Book {
         else borrower = newBorrower;
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book book)) return false;
+        return ISBN == book.ISBN;
+    }
 
     @Override
     public String toString() {
