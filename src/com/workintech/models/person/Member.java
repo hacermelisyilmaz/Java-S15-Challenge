@@ -7,7 +7,7 @@ import com.workintech.models.book.Book;
 
 import java.util.*;
 
-public abstract class Member extends Person {
+public abstract class Member extends Person implements Comparable {
     private long memberID;
     private String dateOfMembership;
     private Map<Long, Book> borrowedBooks = new TreeMap<>();
@@ -26,6 +26,7 @@ public abstract class Member extends Person {
                 if (borrowedBooks.size() < maxLimit) {
                     borrowedBooks.put(ISBN, Library.getBook(ISBN));
                     Library.getBook(ISBN).setStatus(BookStatus.LENT);
+                    Library.getBook(ISBN).setBorrower(Library.getMember(memberID));
                 }
                 else System.out.println("You have reached the limit for borrowing books (%d)" + maxLimit);
             }
@@ -43,6 +44,7 @@ public abstract class Member extends Person {
         if (flag && borrowedBooks.containsKey(ISBN)) {
             borrowedBooks.remove(ISBN);
             Library.getBook(ISBN).setStatus(BookStatus.AVAILABLE);
+            Library.getBook(ISBN).setBorrower(null);
         }
         else System.out.println("The book is not in your borrowed book list.");
     }
@@ -89,5 +91,10 @@ public abstract class Member extends Person {
                 ", dateOfMembership='" + dateOfMembership + '\'' +
                 ", numberOfBooksBorrowed=" + numberOfBooksBorrowed +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return Long.compare(this.memberID, ((Member) o).getMemberID());
     }
 }

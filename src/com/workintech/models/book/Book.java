@@ -5,7 +5,7 @@ import com.workintech.models.person.Member;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable {
     private long ISBN;
     private Author author;
     private String name;
@@ -142,5 +142,10 @@ public class Book {
                 ", year=" + year +
                 ", borrower=" + borrower +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.author.getLastName().compareTo(((Book) o).getAuthor().getLastName());
     }
 }
