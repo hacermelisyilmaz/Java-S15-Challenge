@@ -8,7 +8,7 @@ public class Author {
     private String lastName;
     private int birthYear;
     private String description;
-    private Map books = new HashMap();
+    private Map<Long, Book> books = new HashMap<>();
 
     public Author(String firstName, String lastName, int birthYear) {
         this.firstName = firstName;
@@ -55,11 +55,7 @@ public class Author {
         this.description = description;
     }
 
-    public Map getBooks() {
+    public Map<Long, Book> getBooks() {
         return books;
-    }
-
-    public void setBooks(Map books) {
-        this.books = books;
     }
 }
