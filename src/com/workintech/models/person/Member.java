@@ -20,17 +20,18 @@ public abstract class Member extends Person {
         this.dateOfMembership = dateOfMembership;
     }
 
-    public void borrowBook(long ISBN) {
-        boolean flag = false;
-
-        if (Library.getBooks().containsKey(ISBN)) flag = true;
-        else System.out.println("Book not found in the system.");
-
-        if (flag && Library.getBook(ISBN).getStatus() == BookStatus.AVAILABLE) {
-            borrowedBooks.put(ISBN, Library.getBook(ISBN));
-            Library.getBook(ISBN).setStatus(BookStatus.LENT);
+    public void borrowBook(long ISBN, int maxLimit) {
+        if (Library.getBooks().containsKey(ISBN)) {
+            if (Library.getBook(ISBN).getStatus() == BookStatus.AVAILABLE) {
+                if (borrowedBooks.size() < maxLimit) {
+                    borrowedBooks.put(ISBN, Library.getBook(ISBN));
+                    Library.getBook(ISBN).setStatus(BookStatus.LENT);
+                }
+                else System.out.println("You have reached the limit for borrowing books (%d)" + maxLimit);
+            }
+            else System.out.println("The book is not available.");
         }
-        else System.out.println("The book is not available.");
+        else System.out.println("Book not found in the system.");
     }
 
     public void returnBook(long ISBN) {
