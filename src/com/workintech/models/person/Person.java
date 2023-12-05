@@ -12,6 +12,12 @@ public abstract class Person {
         this.type = type;
     }
 
+    public Person(String name, String phoneNumber, PersonType type) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.type = type;
+    }
+
     public String getName() {
         return name;
     }
