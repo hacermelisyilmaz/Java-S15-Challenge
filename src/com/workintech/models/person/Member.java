@@ -20,17 +20,30 @@ public abstract class Member extends Person {
         this.dateOfMembership = dateOfMembership;
     }
 
-    public void borrowBook(Long newISBN) {
+    public void borrowBook(long ISBN) {
         boolean flag = false;
 
-        if (Library.getBooks().containsKey(newISBN)) flag = true;
+        if (Library.getBooks().containsKey(ISBN)) flag = true;
         else System.out.println("Book not found in the system.");
 
-        if (flag && Library.getBook(newISBN).getStatus() == BookStatus.AVAILABLE) {
-            borrowedBooks.put(newISBN, Library.getBook(newISBN));
-            Library.getBook(newISBN).setStatus(BookStatus.LENT);
+        if (flag && Library.getBook(ISBN).getStatus() == BookStatus.AVAILABLE) {
+            borrowedBooks.put(ISBN, Library.getBook(ISBN));
+            Library.getBook(ISBN).setStatus(BookStatus.LENT);
         }
         else System.out.println("The book is not available.");
+    }
+
+    public void returnBook(long ISBN) {
+        boolean flag = false;
+
+        if (Library.getBooks().containsKey(ISBN)) flag = true;
+        else System.out.println("Book not found in the system.");
+
+        if (flag && borrowedBooks.containsKey(ISBN)) {
+            borrowedBooks.remove(ISBN);
+            Library.getBook(ISBN).setStatus(BookStatus.AVAILABLE);
+        }
+        else System.out.println("The book is not in your borrowed book list.");
     }
 
     public long getMemberID() {
