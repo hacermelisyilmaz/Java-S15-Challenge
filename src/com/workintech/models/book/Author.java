@@ -23,5 +23,43 @@ public class Author {
         this.description = description;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Map getBooks() {
+        return books;
+    }
+
+    public void setBooks(Map books) {
+        this.books = books;
+    }
 }
