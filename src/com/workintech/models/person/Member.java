@@ -10,14 +10,14 @@ import java.util.*;
 public abstract class Member extends Person implements Comparable {
     private long memberID;
     private String dateOfMembership;
-    private Map<Long, Book> borrowedBooks = new TreeMap<>();
-    private int numberOfBooksBorrowed;
+    private Map<Long, Book> borrowedBooks;
     private double bill;
 
-    public Member(String name, PersonType type, long memberID, String dateOfMembership) {
+    public Member(String name, PersonType type, long memberID, String dateOfMembership, Map<Long, Book> borrowedBooks) {
         super(name, type);
         this.memberID = memberID;
         this.dateOfMembership = dateOfMembership;
+        this.borrowedBooks = borrowedBooks;
     }
 
     public void borrowBook(long ISBN, int maxLimit) {
@@ -65,14 +65,6 @@ public abstract class Member extends Person implements Comparable {
         this.dateOfMembership = dateOfMembership;
     }
 
-    public int getNumberOfBooksBorrowed() {
-        return numberOfBooksBorrowed;
-    }
-
-    public void setNumberOfBooksBorrowed(int numberOfBooksBorrowed) {
-        this.numberOfBooksBorrowed = numberOfBooksBorrowed;
-    }
-
     public double getBill() {
         return bill;
     }
@@ -89,7 +81,6 @@ public abstract class Member extends Person implements Comparable {
                 "type=" + getType() +
                 "phone=" + getPhoneNumber() +
                 ", dateOfMembership='" + dateOfMembership + '\'' +
-                ", numberOfBooksBorrowed=" + numberOfBooksBorrowed +
                 '}';
     }
 
