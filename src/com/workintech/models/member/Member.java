@@ -1,8 +1,8 @@
-package com.workintech.models.person;
+package com.workintech.models.member;
 
 import com.workintech.enums.BookStatus;
 import com.workintech.enums.PersonType;
-import com.workintech.models.Library;
+import com.workintech.models.restricted.Library;
 import com.workintech.models.book.Book;
 
 import java.util.*;
