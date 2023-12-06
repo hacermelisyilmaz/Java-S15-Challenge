@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Librarian extends Person {
     private String password;
-    public Librarian(String name, PersonType type, String password) {
-        super(name, type);
+    public Librarian(String name, String password) {
+        super(name, PersonType.LIBRARIAN);
         this.password = password;
     }
 
