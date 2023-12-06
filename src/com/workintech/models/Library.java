@@ -26,12 +26,12 @@ public class Library {
         return members.get(ID);
     }
 
-    public static void setBooks(Book newBook) {
+    public static void addToCollection(Book newBook) {
         if (books.containsKey(newBook.getISBN())) System.out.println("This book is already in the system.");
         else books.put(newBook.getISBN(), newBook);
     }
 
-    public static void setMembers(Member newMember) {
+    public static void addMember(Member newMember) {
         if (members.containsKey(newMember.getMemberID())) System.out.println("A member with the given ID is already in the system.");
         else members.put(newMember.getMemberID(), newMember);
     }
