@@ -26,13 +26,17 @@ public class Library {
         return members.get(ID);
     }
 
-    public static void addToCollection(Book newBook) {
-        if (books.containsKey(newBook.getISBN())) System.out.println("This book is already in the system.");
-        else books.put(newBook.getISBN(), newBook);
+    public static void addToCollection(Book... newBooks) {
+        for (Book newBook: newBooks) {
+            if (books.containsKey(newBook.getISBN())) System.out.println("This book is already in the system.");
+            else books.put(newBook.getISBN(), newBook);
+        }
     }
 
-    public static void addMember(Member newMember) {
-        if (members.containsKey(newMember.getMemberID())) System.out.println("A member with the given ID is already in the system.");
-        else members.put(newMember.getMemberID(), newMember);
+    public static void addMember(Member... newMembers) {
+        for (Member newMember: newMembers) {
+            if (members.containsKey(newMember.getMemberID())) System.out.println("A member with the given ID is already in the system.");
+            else members.put(newMember.getMemberID(), newMember);
+        }
     }
 }
