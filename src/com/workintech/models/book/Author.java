@@ -1,6 +1,5 @@
 package com.workintech.models.book;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Author {
@@ -8,7 +7,7 @@ public class Author {
     private String lastName;
     private int birthYear;
     private String description;
-    private Map<Long, Book> books = new HashMap<>();
+    private Map<Long, Book> books;
 
     public Author(String firstName, String lastName, int birthYear) {
         this.firstName = firstName;
@@ -57,5 +56,12 @@ public class Author {
 
     public Map<Long, Book> getBooks() {
         return books;
+    }
+
+    public void addBook(Book newBook) {
+        if (books.containsKey(newBook.getISBN())) System.out.println("This book is already in the system.");
+        else if (!(newBook.getAuthor().getLastName().equals(lastName) && newBook.getAuthor().getFirstName().equals(firstName)))
+            System.out.println("This book does not belong to the selected author.");
+        else books.put(newBook.getISBN(), newBook);
     }
 }
