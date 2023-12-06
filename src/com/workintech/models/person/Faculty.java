@@ -9,7 +9,7 @@ import java.util.Map;
 public class Faculty extends Member {
     private static int maxBooklimit = 15;
 
-    public Faculty(String name, PersonType type, long memberID, String dateOfMembership, Map<Long, Book> borrowedBooks) {
+    public Faculty(String name, long memberID, String dateOfMembership, Map<Long, Book> borrowedBooks) {
         super(name, PersonType.FACULTY, memberID, dateOfMembership, borrowedBooks);
     }
 
