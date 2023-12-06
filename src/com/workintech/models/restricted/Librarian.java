@@ -1,8 +1,9 @@
-package com.workintech.models.person;
+package com.workintech.models.restricted;
 
 import com.workintech.enums.PersonType;
-import com.workintech.models.Library;
 import com.workintech.models.book.Book;
+import com.workintech.models.member.Member;
+import com.workintech.models.member.Person;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -21,14 +22,22 @@ public class Librarian extends Person {
         return this.password.equals(password);
     }
 
-    public void addBook(String password, Book book) {
-        if (authenticate()) Library.getBooks().put(book.getISBN(), book);
-        else System.out.println("Incorrect password.");
+    public void addNewMember(Member... newMembers) {
+        if (authenticate()) Library.addMembers(newMembers);
+        else System.out.println("Incorrect password. Member could not be added.");
     }
 
-    public void removeBook(long ISBN) {
-        if (authenticate()) Library.getBooks().remove(ISBN);
-        else System.out.println("Incorrect password.");
+    public void addToCollection(Book... books) {
+        if (authenticate()) Library.addBooks(books);
+        else System.out.println("Incorrect password. Book could not be added.");
+    }
+
+    public void removeFromCollection(long ISBN) {
+        if (authenticate()) {
+            Library.getBooks().remove(ISBN);
+            System.out.println("Book is successfully removed.");
+        }
+        else System.out.println("Incorrect password. Book could not be removed.");
     }
 
     public void editBookInfo(long ISBN) {
@@ -73,8 +82,9 @@ public class Librarian extends Person {
                 }
 
             }
+            System.out.println("Book information is successfully edited.");
         }
-        else System.out.println("Incorrect password.");
+        else System.out.println("Incorrect password. Book information could not be edited.");
     }
 
     public void createBill() {
