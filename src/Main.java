@@ -2,6 +2,8 @@ import com.workintech.models.Library;
 import com.workintech.models.book.Author;
 import com.workintech.models.book.Book;
 import com.workintech.models.person.Faculty;
+import com.workintech.models.person.Librarian;
+import com.workintech.models.person.Person;
 import com.workintech.models.person.Student;
 
 import java.util.TreeMap;
@@ -20,6 +22,9 @@ public class Main {
                         1975, 2, "1975/04/01", "İletişim Yayınları", 11.00, "2023/09/22"),
                 new Book(9789753632904L, new Author("Füruzan", "NA", 1932), "Benim Sinemalarım",
                         1973, 2, "NA", "Yapı Kredi Yayınları", 3.90, "2023/02/22"));
+
+        /* CREATE THE LIBRARIAN */
+        Person librarian = new Librarian("Evrim Yılmaz", "1234");
 
         /* ADDING MEMBERS */
         Library.addMember(
