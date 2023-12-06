@@ -10,7 +10,7 @@ public class Faculty extends Member {
     private static int maxBooklimit = 15;
 
     public Faculty(String name, PersonType type, long memberID, String dateOfMembership, Map<Long, Book> borrowedBooks) {
-        super(name, type, memberID, dateOfMembership, borrowedBooks);
+        super(name, PersonType.FACULTY, memberID, dateOfMembership, borrowedBooks);
     }
 
     public void reserveBook(long ISBN) {

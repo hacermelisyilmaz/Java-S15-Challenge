@@ -11,7 +11,7 @@ public class Student extends Member {
     private Map<String, Book> borrowedBooks = new HashMap<>();
 
     public Student(String name, PersonType type, long memberID, String dateOfMembership, Map<Long, Book> borrowedBooks) {
-        super(name, type, memberID, dateOfMembership, borrowedBooks);
+        super(name, PersonType.STUDENT, memberID, dateOfMembership, borrowedBooks);
     }
 
     public Map<String, Book> getBorrowedBooks() {
