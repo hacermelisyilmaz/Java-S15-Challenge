@@ -9,26 +9,20 @@ public class Book implements Comparable {
     private String name;
     private int year;
     private int edition;
+    private String dateOfPublication;
     private String publisher;
     private double price;
     private BookStatus status;
     private String dateOfPurchase;
     private Member borrower;
 
-    public Book(long ISBN, Author author, String name, int year, String dateOfPurchase) {
-        this.ISBN = ISBN;
-        this.author = author;
-        this.name = name;
-        this.year = year;
-        this.dateOfPurchase = dateOfPurchase;
-    }
-
-    public Book(long ISBN, Author author, String name, int year, int edition, String publisher, double price, String dateOfPurchase) {
+    public Book(long ISBN, Author author, String name, int year, int edition, String dateOfPublication, String publisher, double price, String dateOfPurchase) {
         this.ISBN = ISBN;
         this.author = author;
         this.name = name;
         this.year = year;
         this.edition = edition;
+        this.dateOfPublication = dateOfPublication;
         this.publisher = publisher;
         this.price = price;
         this.dateOfPurchase = dateOfPurchase;
