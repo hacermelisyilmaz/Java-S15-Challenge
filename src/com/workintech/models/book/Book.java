@@ -1,7 +1,7 @@
 package com.workintech.models.book;
 
 import com.workintech.enums.BookStatus;
-import com.workintech.models.person.Member;
+import com.workintech.models.member.Member;
 
 public class Book implements Comparable {
     private long ISBN;
@@ -128,11 +128,8 @@ public class Book implements Comparable {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "author=" + author +
-                ", name='" + name + '\'' +
-                ", year=" + year +
-                ", borrower=" + borrower +
+        return "Book: " + name + " (" + year + "), " + author +
+                ", borrower: " + borrower +
                 '}';
     }
 
