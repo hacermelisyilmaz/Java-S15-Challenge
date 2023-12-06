@@ -64,4 +64,9 @@ public class Author {
             System.out.println("This book does not belong to the selected author.");
         else books.put(newBook.getISBN(), newBook);
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + " (" + birthYear + ")";
+    }
 }
