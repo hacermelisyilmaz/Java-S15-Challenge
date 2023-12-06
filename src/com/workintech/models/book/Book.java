@@ -3,8 +3,6 @@ package com.workintech.models.book;
 import com.workintech.enums.BookStatus;
 import com.workintech.models.person.Member;
 
-import java.util.Objects;
-
 public class Book implements Comparable {
     private long ISBN;
     private Author author;
