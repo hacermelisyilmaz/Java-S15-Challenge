@@ -1,6 +1,7 @@
 package com.workintech.models.book;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Author {
     private String firstName;
@@ -9,16 +10,18 @@ public class Author {
     private String description;
     private Map<Long, Book> books;
 
-    public Author(String firstName, String lastName, int birthYear) {
+    public Author(String firstName, String lastName, int birthYear, Map<Long, Book> books) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
+        this.books = books;
     }
 
-    public Author(String firstName, String lastName, int birthYear, String description) {
+    public Author(String firstName, String lastName, int birthYear, Map<Long, Book> books, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
+        this.books = books;
         this.description = description;
     }
 
@@ -68,5 +71,17 @@ public class Author {
     @Override
     public String toString() {
         return firstName + " " + lastName + " (" + birthYear + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Author author)) return false;
+        return birthYear == author.birthYear && Objects.equals(lastName, author.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lastName, birthYear);
     }
 }
