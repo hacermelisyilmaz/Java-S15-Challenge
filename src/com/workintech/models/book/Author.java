@@ -3,7 +3,7 @@ package com.workintech.models.book;
 import java.util.Map;
 import java.util.Objects;
 
-public class Author {
+public class Author implements Comparable{
     private String firstName;
     private String lastName;
     private int birthYear;
@@ -45,10 +45,6 @@ public class Author {
         return birthYear;
     }
 
-    public void setBirthYear(int birthYear) {
-        this.birthYear = birthYear;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -70,7 +66,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + " (" + birthYear + ")";
+        return lastName + ", " + firstName + " (" + birthYear + ")";
     }
 
     @Override
@@ -83,5 +79,10 @@ public class Author {
     @Override
     public int hashCode() {
         return Objects.hash(lastName, birthYear);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return lastName.compareTo(((Author) o).getLastName());
     }
 }

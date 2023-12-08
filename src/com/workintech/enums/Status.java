@@ -1,6 +1,6 @@
 package com.workintech.enums;
 
-public enum BookStatus {
+public enum Status {
     AVAILABLE,
     LENT,
     RESERVED

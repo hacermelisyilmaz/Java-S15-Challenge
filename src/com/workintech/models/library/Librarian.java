@@ -1,4 +1,4 @@
-package com.workintech.models.restricted;
+package com.workintech.models.library;
 
 import com.workintech.enums.PersonType;
 import com.workintech.models.book.Author;
@@ -31,6 +31,11 @@ public class Librarian extends Person {
 
     public void addNewMember(Member... newMembers) {
         if (authenticate()) Library.addMembers(newMembers);
+        else System.out.println("Incorrect password. Member could not be added.");
+    }
+
+    public void addNewStudyRoom(StudyRoom... studyRooms) {
+        if (authenticate()) Library.addStudyRooms(studyRooms);
         else System.out.println("Incorrect password. Member could not be added.");
     }
 
@@ -108,17 +113,5 @@ public class Librarian extends Person {
             else System.out.println("Incorrect password. Book information could not be edited.");
         } else System.out.println("Edit request failed.");
 
-    }
-
-    public void createBill() {
-
-    }
-
-    public void returnDeposit() {
-
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

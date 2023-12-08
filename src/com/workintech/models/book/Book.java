@@ -1,6 +1,6 @@
 package com.workintech.models.book;
 
-import com.workintech.enums.BookStatus;
+import com.workintech.enums.Status;
 import com.workintech.models.member.Member;
 import com.workintech.models.member.Person;
 
@@ -14,7 +14,7 @@ public class Book implements Comparable {
     private String publisher;
     private String genre;
     private double price;
-    private BookStatus status;
+    private Status status;
     private String dateOfPurchase;
     private Person borrower;
     private Person reserver;
@@ -30,7 +30,7 @@ public class Book implements Comparable {
         this.price = price;
         this.dateOfPurchase = dateOfPurchase;
         this.genre = genre;
-        this.status = BookStatus.AVAILABLE;
+        this.status = Status.AVAILABLE;
     }
 
     public long getISBN() {
@@ -61,7 +61,7 @@ public class Book implements Comparable {
         return price;
     }
 
-    public BookStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -126,7 +126,7 @@ public class Book implements Comparable {
         this.price = price;
     }
 
-    public void setStatus(BookStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -136,16 +136,6 @@ public class Book implements Comparable {
 
     public void setBorrower(Member borrower) {
         this.borrower = borrower;
-    }
-
-    public void updateStatus(BookStatus newStatus) {
-        if (status == newStatus) System.out.println("The book is already " + newStatus);
-        else status = newStatus;
-    }
-
-    public void changeBorrower(Member newBorrower) {
-        if (borrower == newBorrower) System.out.println(newBorrower + " already has this book.");
-        else borrower = newBorrower;
     }
 
     @Override
